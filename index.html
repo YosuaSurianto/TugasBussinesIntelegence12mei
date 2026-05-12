@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Partai Buaya – Konoha 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="logo">🐊</div>
+  <div class="header-text">
+    <h1>PARTAI BUAYA</h1>
+    <p>Dashboard Analisis Negara Konoha &nbsp;|&nbsp; Pemilu Presiden 2026</p>
+  </div>
+  <div class="header-badge">Industri · Investasi · Infrastruktur</div>
+</header>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main>
+
+  <!-- KPI -->
+  <div class="section-label">01 — Indikator Utama Negara Konoha</div>
+  <div class="kpi-grid">
+    <div class="kpi-card k1">
+      <div class="kpi-icon">📉</div>
+      <div class="kpi-label">Tingkat Pengangguran</div>
+      <div class="kpi-value">7,4%</div>
+      <div class="kpi-sub">
+        <span class="kpi-trend up">▲ 0,8%</span> dari tahun lalu
+      </div>
+    </div>
+    <div class="kpi-card k2">
+      <div class="kpi-icon">💸</div>
+      <div class="kpi-label">Tingkat Kemiskinan</div>
+      <div class="kpi-value">11,2%</div>
+      <div class="kpi-sub">
+        <span class="kpi-trend up">▲ 0,3%</span> dari tahun lalu
+      </div>
+    </div>
+    <div class="kpi-card k3">
+      <div class="kpi-icon">📈</div>
+      <div class="kpi-label">Pertumbuhan Ekonomi</div>
+      <div class="kpi-value">4,9%</div>
+      <div class="kpi-sub">
+        <span class="kpi-trend down">▼ 0,5%</span> dari tahun lalu
+      </div>
+    </div>
+    <div class="kpi-card k4">
+      <div class="kpi-icon">🏗️</div>
+      <div class="kpi-label">Realisasi Investasi</div>
+      <div class="kpi-value">Rp 1,2T</div>
+      <div class="kpi-sub">
+        <span class="kpi-trend down">▼ 3,2%</span> dari target
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 1: Bar + Line -->
+  <div class="section-label">02 — Distribusi & Tren Wilayah</div>
+  <div class="chart-grid row-2" style="margin-bottom:20px;">
+
+    <div class="chart-card">
+      <div class="chart-title">Bar Chart — Tingkat Pengangguran per Wilayah</div>
+      <div class="chart-desc">Membandingkan tingkat pengangguran antar wilayah Konoha. Wilayah dengan batang tertinggi menjadi prioritas intervensi industri.</div>
+      <canvas id="barChart" height="220"></canvas>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Wilayah Sunagakure dan Kirigakure mencatat pengangguran tertinggi (&gt;10%), menandakan minimnya industri lokal dan infrastruktur konektivitas.
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Line Chart — Tren Pertumbuhan Ekonomi (2020–2024)</div>
+      <div class="chart-desc">Menunjukkan pola pertumbuhan ekonomi nasional dan per wilayah selama 5 tahun. Digunakan untuk mengidentifikasi penurunan & peluang investasi.</div>
+      <canvas id="lineChart" height="220"></canvas>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Pascapandemi, pertumbuhan stagnan di bawah 5%. Tanpa dorongan investasi industri besar, tren ini diprediksi berlanjut.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROW 2: Heatmap + Pie -->
+  <div class="section-label">03 — Peta Kemiskinan & Komposisi Ekonomi</div>
+  <div class="chart-grid row-2" style="margin-bottom:20px;">
+
+    <div class="chart-card">
+      <div class="chart-title">Heatmap — Indeks Kemiskinan per Wilayah per Tahun (%)</div>
+      <div class="chart-desc">Warna menunjukkan intensitas kemiskinan. Merah = sangat tinggi, hijau = rendah. Pola multi-tahun menunjukkan wilayah mana yang tidak mengalami kemajuan.</div>
+      <div class="heatmap-wrap">
+        <table class="heatmap-table">
+          <thead>
+            <tr>
+              <th>Wilayah</th>
+              <th>2020</th>
+              <th>2021</th>
+              <th>2022</th>
+              <th>2023</th>
+              <th>2024</th>
+            </tr>
+          </thead>
+          <tbody id="heatmapBody"></tbody>
+        </table>
+      </div>
+      <div class="heatmap-legend">
+        <span>Rendah</span>
+        <div class="legend-boxes">
+          <div class="lb heat-1"></div>
+          <div class="lb heat-2"></div>
+          <div class="lb heat-3"></div>
+          <div class="lb heat-4"></div>
+          <div class="lb heat-5"></div>
+        </div>
+        <span>Tinggi</span>
+      </div>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Sunagakure dan Kirigakure konsisten merah selama 5 tahun — butuh intervensi infrastruktur jalan dan kawasan industri terpadu.
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Pie Chart — Komposisi Sektor Ekonomi Konoha</div>
+      <div class="chart-desc">Menampilkan kontribusi masing-masing sektor terhadap PDB nasional. Dasar penentuan sektor mana yang perlu didorong lewat investasi.</div>
+      <canvas id="pieChart" height="220"></canvas>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Sektor industri manufaktur baru 18% PDB — jauh di bawah potensinya. Target Partai Buaya: naik ke 28% dalam 5 tahun.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROW 3: Scatter + Infra -->
+  <div class="section-label">04 — Hubungan Antar Variabel</div>
+  <div class="chart-grid row-3">
+
+    <div class="chart-card">
+      <div class="chart-title">Scatter Plot — Investasi vs Tingkat Pengangguran per Wilayah</div>
+      <div class="chart-desc">Setiap titik mewakili satu wilayah. Pola negatif (kiri atas → kanan bawah) membuktikan bahwa investasi yang lebih tinggi berkorelasi dengan pengangguran lebih rendah.</div>
+      <canvas id="scatterChart" height="240"></canvas>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Korelasi negatif kuat (r ≈ −0,71): wilayah dengan realisasi investasi tinggi secara konsisten memiliki angka pengangguran lebih rendah. Ini adalah argumen utama Partai Buaya untuk mendorong kawasan industri baru.
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Bar Chart — Infrastruktur Skor per Wilayah</div>
+      <div class="chart-desc">Skor infrastruktur (0–100) mencakup jalan, listrik, dan akses internet. Digunakan sebagai proxy daya tarik investasi suatu wilayah.</div>
+      <canvas id="infraChart" height="240"></canvas>
+      <div class="insight-box">
+        <strong>💡 Insight</strong>
+        Konoha Tengah jauh melampaui wilayah lain. Partai Buaya akan memeratakan infrastruktur melalui program "Konoha Industri Merata".
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div>Sumber data: <span>BPS · World Bank · Open Data Indonesia</span> &nbsp;(data placeholder — ganti dengan data riil)</div>
+  <div>Simulasi Pemilu Konoha 2026 &nbsp;|&nbsp; <span>Partai Buaya</span></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
